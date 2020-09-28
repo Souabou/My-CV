@@ -8,46 +8,61 @@
     width: 100%;
     height: 100vh;
     display: grid;
+    flex-wrap: wrap;
     grid-template-areas: 
-        "sidebar"
-        "main"
-        "content1"
-        "content2"
-        "content3"
-        "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: 130px 800px 250px ;
+        ". . navbar" 
+        "main main main"
+        "content1 content2 content3"
+        "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1.2fr 1fr 1fr ;
+        
+
+}
+.box {
+    border: 1px solid goldenrod;
 }
 .main {
     grid-area: main;
 }
 
-.sidebar {
-    grid-area: sidebar;
+.navbar {
+    grid-area: navbar;
+    justify-content: center;
     
 }
+
 .content1 {
+    grid-area: content1;
     background-color: tomato;
+    
 }
+
 .content2 {
-    background-color: yellowgreen;
+    grid-area: content2;
+    
 }
+
 .content3 {
-    background-color: rgb(54, 53, 58) ;
+    grid-area: content3;
+    background-color: rgb(54, 53, 58);
 }
+
 .footer {
     grid-area:footer;
+    text-align: center;
     background-color: yellow;
 }
 
 .main,
-.sidebar,
+.navbar,
 .content1,
 .content2,
 .content3,
 .footer {
     padding: 1em;
 }
+
 nav ul {
     margin: 0;
     padding: 0;
@@ -56,18 +71,21 @@ nav ul {
     text-align: center;
 
 }
+.nav {
+    font-size: 30px;
+}
 nav li {
     list-style: none;
     padding: 1em 0;
 }
-
 nav li a {
     color: black;
     font-weight: 100;
     text-decoration: none;
-    opacity: 0.6;
-    transition:0.3s
+    
+    transition:0.3s;
 }
+
 .me {
     max-width: 960px;
     margin: 0 auto;
@@ -85,14 +103,15 @@ nav li a {
     font-weight: 300;
     line-height: 1em;  
 }
+
 .action-btn {
     display: inline-block;
     text-decoration: none;
     color: cornsilk;
     font-weight: 400;
-    background: darkblue;
+    background: black;
     padding: 1em 1.5em;
-    margin 1em 0;
+    margin: 1em 0;
     transition: 0.3s;
 
 }
@@ -101,13 +120,39 @@ nav li a {
 }
 
 
-@media (min-width: 1040px) {
+
+@media screen and (max-width: 700px) {
+    
     .container {
         grid-template-areas: 
-        "content main"
-        "sidebar content1"
-        "sidebar content2"
-        "sidebar content3"
-        "sidebar footer";
+        "navbar"
+        "main"
+        "content1"
+        "content2"
+        "content3"
+        "footer";
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr ;
     }
-}
+
+    .navbar {
+        font-size: 14px;
+        background-color: cornflowerblue;
+        
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .me {
+        text-align: center;
+        
+    }
+    .h1 {
+        font-size: 25px;
+    }
+
+} 
+
+
